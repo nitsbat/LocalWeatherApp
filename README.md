@@ -4,3 +4,8 @@ Also feather fcc api is used to get the location temperature - https://fcc-weath
 
 
 The web application can be accessed at - https://nitsbat.github.io/LocalWeatherApp/ 
+
+## ** Note **
+
+The fcc api is slow and is get using http request. 
+So to get the accurate result just refresh the browser 2-3 times.
