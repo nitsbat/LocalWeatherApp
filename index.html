@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp" class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="app/app.css">
+</head>
+
+<body>
+  <div ng-view></div>
+  <div>AngularJS seed app: Made By <a href="https://github.com/nitsbat/LocalWeatherCheck">nitsbat</a><span
+      app-version></span></div>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="app/app.js"></script>
+  <script src="app/weatherAppComponent.js"></script>
+  <weather-app></weather-app>
+</body>
+
+</html>

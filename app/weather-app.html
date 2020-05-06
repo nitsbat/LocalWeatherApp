@@ -1,0 +1,13 @@
+<div class="component-box">
+    <div style="font-size: 5em;padding-top: 20px;"> Open Source Project </div>
+    <div style="font-size: 4em;padding-top: 10px;"> Weather App </div>
+    <div style="font-size: 1.8em;padding-top: 50px;"> {{location}} </div>
+    <div style="font-size: 1.8em;padding-top: 8px;display: flex;"> {{temperature}}
+        <div ng-click="ctrl.changeUnits()" class="unit-symbol">{{ctrl.symbol}}</div>
+    </div>
+    <div style="font-size: 1.8em;padding-top: 8px;"> {{status}} </div>
+    <img ng-src="{{icon}}" class="iconWheel">
+    <div style="font-size: 14px;padding-top: 40px;"> Inspired by <a style="color: #23527c;"
+            ng-href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>
+    </div>
+</div>

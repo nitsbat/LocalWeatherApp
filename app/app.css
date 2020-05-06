@@ -1,0 +1,46 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.component-box{
+  background-color: #2d2828;
+  height : 800px;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  color: antiquewhite;
+}
+.iconWheel{
+  font-size: 1.8em;
+  padding-top: 20px;
+  display: inline-block;
+  width: 5rem;
+  height: 5rem;
+}
+.unit-symbol{
+  color: blue;
+  cursor: pointer;
+}
