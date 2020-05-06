@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp', ['ngRoute']).component('weatherApp', {
+angular.module('myApp', []).component('weatherApp', {
   templateUrl: 'app/weather-app.html',
   controllerAs: "ctrl",
   controller: ['$scope', '$http', function WeatherAppController($scope, $http) {

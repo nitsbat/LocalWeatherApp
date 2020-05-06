@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="myApp" class="no-js">
+<!-- **
+Actually i have implemented this Project in two ways 
+1.) via ng-controller
+2.) via custom component - This scenario throws me a $injector problem when i inject my custom service in it.
+                            However using the inbuilt service works fine.
+                            Just uncomment the code where i have written "To Do the component way".
+** -->
 
 <head>
   <meta charset="utf-8">
@@ -10,15 +17,33 @@
   <link rel="stylesheet" href="app/app.css">
 </head>
 
-<body>
+<body ng-controller="WeatherAppController as ctrl">
+  <!-- REmove the ng-controller if // if you want to do the component way -->
   <div ng-view></div>
   <div>AngularJS seed app: Made By <a href="https://github.com/nitsbat/LocalWeatherCheck">nitsbat</a><span
       app-version></span></div>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-resource.js"></script>
   <script src="app/app.js"></script>
-  <script src="app/weatherAppComponent.js"></script>
-  <weather-app></weather-app>
+  <!-- <script src="app/weatherAppComponent.js"></script>  // Uncomment if you want to do the component way-->
+  <script src="app/weatherDataController.js"></script>
+  <script src="app/weatherDataService.js"></script>
+  <!-- <weather-app></weather-app> // Uncomment if you want to do the component way -->
+  <div class="component-box">
+    <div style="font-size: 5em;padding-top: 20px;"> Open Source Project </div>
+    <div style="font-size: 4em;padding-top: 10px;"> Weather App </div>
+    <div style="font-size: 1.8em;padding-top: 50px;"> {{location}} </div>
+    <div style="font-size: 1.8em;padding-top: 8px;display: flex;"> {{temperature}}
+      <div ng-click="ctrl.changeUnits()" class="unit-symbol">{{ctrl.symbol}}</div>
+    </div>
+    <div style="font-size: 1.8em;padding-top: 8px;"> {{status}} </div>
+    <img ng-src="{{icon}}" class="iconWheel">
+    <div style="font-size: 14px;padding-top: 40px;"> Inspired by <a style="color: #23527c;"
+        ng-href="https://www.freecodecamp.org/" target="_blank">freeCodeCamp</a>
+    </div>
+  </div>
+  <!-- Comment the parent div if want to do the component way -->
 </body>
 
 </html>
