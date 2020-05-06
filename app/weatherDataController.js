@@ -1,24 +1,24 @@
 myApp.controller('WeatherAppController', ['$scope', '$http', 'weatherData', function WeatherAppController($scope, $http, weatherData) {
   this.name = "Nitin";
   this.symbol = 'C';
-  var responseData;
   var latitude;
   var longitude;
   var url;
+
   navigator.geolocation.getCurrentPosition(function (position) {
     latitude = Math.round(position.coords.latitude);
     longitude = Math.round(position.coords.longitude);
     url = 'https://fcc-weather-api.glitch.me/api/current?lat=' + latitude + '&lon=' + longitude;
-    console.log(url);
-    $http.get(url).then(function (response) {
-      responseData = response.data;
-      console.log(responseData);
-      let location = responseData.name + ', ' + responseData.sys.country;
-      var weatherObj = new WeatherConstruct(location, Math.round(responseData.main.temp) + ' °', responseData.weather[0].main, responseData.weather[0].icon);
+
+    var resultPromise = weatherData.getWeatherData(url);
+
+    resultPromise.then(function (response) {
+      let location = response.name + ', ' + response.sys.country;
+      var weatherObj = new WeatherConstruct(location, Math.round(response.main.temp) + ' °', response.weather[0].main, response.weather[0].icon);
       mapServerDataToField(weatherObj);
-      console.log(weatherObj);
     })
   });
+
   function WeatherConstruct(location, temperature, status, icon) {
     this.location = location;
     this.temperature = temperature;
@@ -32,8 +32,8 @@ myApp.controller('WeatherAppController', ['$scope', '$http', 'weatherData', func
     $scope.status = weatherObj.status;
     $scope.icon = weatherObj.icon;
   }
+
   this.changeUnits = function () {
-    console.log("sad");
     let temp = $scope.temperature.replace(' °', '');
     if (this.symbol == "C") {
       this.symbol = "F";
@@ -44,6 +44,5 @@ myApp.controller('WeatherAppController', ['$scope', '$http', 'weatherData', func
     }
     $scope.temperature = temp + ' °';
   }
-
 }])
 

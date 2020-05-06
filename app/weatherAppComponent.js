@@ -14,14 +14,11 @@ angular.module('myApp', []).component('weatherApp', {
       latitude = Math.round(position.coords.latitude);
       longitude = Math.round(position.coords.longitude);
       url = 'https://fcc-weather-api.glitch.me/api/current?lat=' + latitude + '&lon=' + longitude;
-      console.log(url);
       $http.get(url).then(function (response) {
         responseData = response.data;
-        console.log(responseData);
         let location = responseData.name + ', ' + responseData.sys.country;
         var weatherObj = new WeatherConstruct(location, Math.round(responseData.main.temp) + ' °', responseData.weather[0].main, responseData.weather[0].icon);
         mapServerDataToField(weatherObj);
-        console.log(weatherObj);
       })
     });
     function WeatherConstruct(location, temperature, status, icon) {
@@ -38,7 +35,6 @@ angular.module('myApp', []).component('weatherApp', {
       $scope.icon = weatherObj.icon;
     }
     this.changeUnits = function () {
-      console.log("sad");
       let temp = $scope.temperature.replace(' °', '');
       if (this.symbol == "C") {
         this.symbol = "F";
@@ -52,3 +48,4 @@ angular.module('myApp', []).component('weatherApp', {
 
   }]
 })
+
