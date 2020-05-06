@@ -1,10 +1,9 @@
 {
-  "name": "angular-seed",
+  "name": "local-weather-app",
   "private": true,
   "version": "0.0.0",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
-  "license": "MIT",
+  "repository": "https://github.com/nitsbat/LocalWeatherApp",
+  "license": "nitsbat",
   "dependencies": {
     "angular": "^1.7.5",
     "angular-loader": "^1.7.5",
